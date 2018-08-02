@@ -32,7 +32,8 @@ router.get('/:orderId', (req, res, next) => {
         });
     } else {
         res.status(200).json({
-            message: 'you passed an ID'
+            message: 'you passed an ID',
+            orderId:id
         });
     }
 });

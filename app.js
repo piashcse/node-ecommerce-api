@@ -8,7 +8,7 @@ const mongoose = require('mongoose');
 const  productRoutes = require('./api/routes/products');
 const  orderRoutes = require('./api/routes/orders');
 
-mongoose.connect('mongodb+srv://piashmehedi:piash599@pshop-bkzth.mongodb.net/test?retryWrites=true\n')
+mongoose.connect('mongodb+srv://piashmehedi:piash599@pshop-bkzth.mongodb.net/test?retryWrites=true\n',{ useNewUrlParser: true })
 
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({extended:false}));
