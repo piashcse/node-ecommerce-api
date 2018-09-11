@@ -11,6 +11,7 @@ const  orderRoutes = require('./api/routes/orders');
 mongoose.connect('mongodb+srv://piashmehedi:piash599@pshop-bkzth.mongodb.net/test?retryWrites=true\n',{ useNewUrlParser: true })
 
 app.use(morgan('dev'));
+app.use('/uploads', express.static('uploads'));
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json());
 

@@ -9,7 +9,8 @@ const productSchema = mongosse.Schema({
     price: {
         type: Number,
         required: true
-    }
+    },
+    productImage: { type: String, required: true }
 });
 
 module.exports = mongosse.model('Product', productSchema)
