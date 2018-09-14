@@ -7,6 +7,8 @@ const mongoose = require('mongoose');
 
 const  productRoutes = require('./api/routes/products');
 const  orderRoutes = require('./api/routes/orders');
+const  userRoutes = require('./api/routes/user');
+
 
 mongoose.connect('mongodb+srv://piashmehedi:piash599@pshop-bkzth.mongodb.net/test?retryWrites=true\n',{ useNewUrlParser: true })
 
@@ -34,6 +36,7 @@ app.use((req, res, next) => {
 // Routes which should hand routes
 app.use('/products', productRoutes);
 app.use('/orders', orderRoutes);
+app.use('/user', userRoutes);
 
 
 app.use((req, res, next) =>{
