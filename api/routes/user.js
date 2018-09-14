@@ -6,29 +6,59 @@ const bcrypt = require('bcrypt');
 const User = require('../models/user');
 
 router.post('/singup', (req, res, next) => {
-    bcrypt.hash(req.body.password, 10, (err, has) => {
-        if (err) {
-            return res.status(500).json({
-                error: err
-            })
-        } else {
-            const user = new User({
-                _id: new mongoose.Types.ObjectId(),
-                email: req.body.email,
-                password: has
+
+    User.find({
+        email: req.body.email
+    }).exec().then(user => {
+        if (user.length >= 1) {
+            return res.status(409).json({
+                message: 'Email exits'
             });
-            user.save().then(result =>{
-                return res.status(201).json({
-                    message:'User created'
-                })
-            }).catch(err => {
-                console.log(err);
-                res.status(500).json({
-                  error: err
-                });
-              });
+        } else {
+            bcrypt.hash(req.body.password, 10, (err, has) => {
+                if (err) {
+                    return res.status(500).json({
+                        error: err
+                    })
+                } else {
+                    const user = new User({
+                        _id: new mongoose.Types.ObjectId(),
+                        email: req.body.email,
+                        password: has
+                    });
+                    user.save().then(result => {
+                        console.log(result);
+                        return res.status(201).json({
+                            message: 'User created'
+                        })
+                    }).catch(err => {
+                        console.log(err);
+                        res.status(500).json({
+                            error: err
+                        });
+                    });
+                }
+            });
         }
-    });
+    }).catch();
 });
+
+router.delete('/:userId', (req, res, next) => {
+    User.remove({
+            _id: req.body.userId
+        })
+        .exec()
+        .then(result => {
+            return res.status(200).json({
+                message:'User deleted'
+            });
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json({
+                error: err
+            });
+        });
+})
 
 module.exports = router;
