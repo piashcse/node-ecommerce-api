@@ -152,7 +152,7 @@ router.patch("/:productId", (req, res, next) => {
     });
 });
 
-router.delete("/:productId", (req, res, next) => {
+router.delete("/:productId", checkauth, (req, res, next) => {
   const id = req.params.productId;
   Product.remove({ _id: id })
     .exec()
