@@ -16,11 +16,4 @@ export class Product {
 
     @Column('int')
     stock!: number;
-
-    constructor(name: string = "", description: string = "", price: number = 0, stock: number = 0) {
-        this.name = name;
-        this.description = description;
-        this.price = price;
-        this.stock = stock;
-    }
 }
