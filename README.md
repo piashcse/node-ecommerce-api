@@ -8,6 +8,14 @@
 
 A simple REST API built with Node.js and Express for eCommerce operations like product management, orders, and users. Includes basic JWT authentication for secure access to endpoints.
 
+## Architecture
+<p align="center">
+  <img width="40%" height="25%" src="https://github.com/piashcse/node-ecommerce-api/blob/master/screenshots/mvc.png" />
+</p>
+<p align="center">
+<b>Fig.  MVC (Model - View - Controller) Design Pattern.</b>
+</p>
+
 
 ## Built With 🛠
 - [Node](https://nodejs.org/en) - Node.js® is a free, open-source, cross-platform JavaScript runtime environment that lets developers create servers, web apps, command line tools and scripts.
