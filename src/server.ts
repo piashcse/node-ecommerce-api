@@ -5,6 +5,8 @@ import bodyParser from 'body-parser';
 import userRoutes from './routes/userRoutes';
 import productRoutes from "./routes/productRoutes";
 import cartRoutes from "./routes/cartRoutes";
+import swaggerUi from 'swagger-ui-express';
+import swaggerSpec from './swagger/swaggerConfig';
 
 const app = express();
 app.use(bodyParser.json());
@@ -12,6 +14,7 @@ app.use(bodyParser.json());
 app.get('/', (req, res) => {
     res.send('Hello, World! API is working');
 });
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 // Initialize database connection
 AppDataSource.initialize()
