@@ -2,6 +2,7 @@ import { DataSource } from 'typeorm';
 import dotenv from 'dotenv';
 import {User} from "../entity/User";
 import {Product} from "../entity/Product";
+import {CartItem} from "../entity/CartItem";
 
 dotenv.config();
 
@@ -16,7 +17,8 @@ export const AppDataSource = new DataSource({
     logging: false,
     entities: [
          User,
-         Product
+         Product,
+         CartItem,
     ],
     subscribers: [],
     migrations: [],

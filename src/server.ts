@@ -4,6 +4,7 @@ import { AppDataSource } from './config/database';
 import bodyParser from 'body-parser';
 import userRoutes from './routes/userRoutes';
 import productRoutes from "./routes/productRoutes";
+import cartRoutes from "./routes/cartRoutes";
 
 const app = express();
 app.use(bodyParser.json());
@@ -20,6 +21,7 @@ AppDataSource.initialize()
         // Register routes
         app.use('/users', userRoutes);
         app.use('/products', productRoutes);
+        app.use('/cart', cartRoutes);
 
         // Define the port and start the server
         const port = process.env.PORT || 3000;
