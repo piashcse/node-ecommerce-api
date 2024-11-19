@@ -1,8 +1,9 @@
-import 'reflect-metadata';  // Required for TypeORM decorators
+import 'reflect-metadata';
 import express from 'express';
-import { AppDataSource } from './config/database';  // Import AppDataSource
+import { AppDataSource } from './config/database';
 import bodyParser from 'body-parser';
 import userRoutes from './routes/userRoutes';
+import productRoutes from "./routes/productRoutes";
 
 const app = express();
 app.use(bodyParser.json());
@@ -18,6 +19,7 @@ AppDataSource.initialize()
 
         // Register routes
         app.use('/users', userRoutes);
+        app.use('/products', productRoutes);
 
         // Define the port and start the server
         const port = process.env.PORT || 3000;
