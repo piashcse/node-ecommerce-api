@@ -5,9 +5,9 @@ export class User {
     @PrimaryGeneratedColumn()
     id = 0;
 
-    @Column({ type: "varchar" }) // Ensure "varchar" is specified for email
+    @Column({ type: "varchar" })
     email ="";
 
-    @Column({ type: "varchar" }) // Ensure "varchar" is specified for password
+    @Column({ type: "varchar" })
     password ="";
 }

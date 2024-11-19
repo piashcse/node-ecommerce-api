@@ -6,7 +6,7 @@ import dotenv from 'dotenv';
 import userRoutes from './routes/userRoutes';
 
 const app = express();
-app.use(bodyParser.json());  // Middleware to parse JSON bodies
+app.use(bodyParser.json());
 
 // Initialize database connection
 AppDataSource.initialize()

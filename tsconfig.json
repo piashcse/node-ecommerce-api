@@ -16,6 +16,6 @@
   },
   "include": ["src/**/*.ts",
     "src/server"
-  ],  // Ensure it includes your source TypeScript files               // Include files in the `src` folder
+  ],  // Ensure it includes your source TypeScript files. Include files in the `src` folder
   "exclude": ["node_modules"]      // Exclude `node_modules` and build output
 }
