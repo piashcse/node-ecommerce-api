@@ -2,7 +2,6 @@ import 'reflect-metadata';  // Required for TypeORM decorators
 import express from 'express';
 import { AppDataSource } from './config/database';  // Import AppDataSource
 import bodyParser from 'body-parser';
-import dotenv from 'dotenv';
 import userRoutes from './routes/userRoutes';
 
 const app = express();

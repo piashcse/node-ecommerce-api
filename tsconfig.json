@@ -11,7 +11,7 @@
     "outDir": "./dist",                    // Output directory for compiled JavaScript files
     "rootDir": "./src",                    // Root directory of source files
     "resolveJsonModule": true,             // Allow importing JSON files
-    "typeRoots": ["./node_modules/@types"], // Specify type declaration locations
+    "typeRoots": ["./node_modules/@types","./src/types"], // Specify type declaration locations
     "baseUrl": "./",                       // Base URL for module resolution
   },
   "include": ["src/**/*.ts",
