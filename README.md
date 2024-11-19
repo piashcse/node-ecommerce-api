@@ -1,8 +1,8 @@
 ### Node Ecommerce Backend API
-![Node.js](https://img.shields.io/badge/Node.js-v18.0.0-brightgreen)
-![Express](https://img.shields.io/badge/Express-v4.17.1-brightgreen)
-![TypeScript](https://img.shields.io/badge/TypeScript-%5E4.4.4-blue)
-![PostgreSQL](https://img.shields.io/badge/PostgreSQL-v8.7.1-blue)
+![Node.js](https://img.shields.io/badge/Node.js-18.0.0-brightgreen)
+![Express](https://img.shields.io/badge/Express-4.17.1-brightgreen)
+![TypeScript](https://img.shields.io/badge/TypeScript-4.4.4-blue)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-8.7.1-blue)
 [![GitHub license](https://img.shields.io/badge/license-Apache%20License%202.0-blue.svg?style=flat)](https://www.apache.org/licenses/LICENSE-2.0)
 <a href="https://github.com/piashcse"><img alt="License" src="https://img.shields.io/static/v1?label=GitHub&message=piashcse&color=C51162"/></a>
 
