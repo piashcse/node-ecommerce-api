@@ -8,6 +8,10 @@ import userRoutes from './routes/userRoutes';
 const app = express();
 app.use(bodyParser.json());
 
+app.get('/', (req, res) => {
+    res.send('Hello, World! API is working');
+});
+
 // Initialize database connection
 AppDataSource.initialize()
     .then(() => {
