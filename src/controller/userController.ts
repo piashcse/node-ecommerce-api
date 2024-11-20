@@ -48,7 +48,7 @@ export const createUser = async (req: Request, res: Response) => {
 
 // Login user and generate JWT token
 export const loginUser = async (req: Request, res: Response) => {
-    const { email, password } = req.body;
+    const { email, password, role } = req.body;
 
     try {
         const userRepository = AppDataSource.getRepository(User);
@@ -64,8 +64,12 @@ export const loginUser = async (req: Request, res: Response) => {
             return res.status(401).json({ message: 'Invalid password' });
         }
 
+        if (role != user.role){
+            return res.status(401).json({ message: 'Invalid role' });
+        }
+
         // Generate JWT token with role included
-        const token = generateToken(user.email, user.role);
+        const token = generateToken(user.email, user.password, user.role);
 
         res.status(200).json({ accessToken: token, role: user.role });
     } catch (error) {

@@ -15,10 +15,11 @@ export const verifyToken = (token: string): JwtPayload => {
     }
 };
 
-export const generateToken = (email:string, password:string): string => {
+export const generateToken = (email:string, password:string, role: string): string => {
     const payload = {
         email: email,
-        password: password
+        password: password,
+        role: role,
     };
 
     // Define the expiration time (e.g., 1 hour)

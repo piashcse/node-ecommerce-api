@@ -47,7 +47,7 @@ const swaggerOptions = {
                         },
                         role: {
                             type: 'string',
-                            enum: ['Customer', 'Seller'],
+                            enum: ['CUSTOMER', 'SELLER'],
                         },
                     },
                 },
@@ -63,11 +63,11 @@ const swaggerOptions = {
                         },
                         role: {
                             type: 'string',
-                            enum: ['Customer', 'Seller'],
-                            default: 'Customer',
+                            enum: ['CUSTOMER', 'SELLER'],
+                            default: 'CUSTOMER',
                         },
                     },
-                    required: ['email', 'password'],
+                    required: ['email', 'password', 'role'],
                 },
                 Product: {
                     type: 'object',
