@@ -6,7 +6,7 @@ const swaggerOptions = {
         info: {
             title: 'Node E-Commerce API',
             version: '1.0.0',
-            description: 'API for managing products in an e-commerce system',
+            description: 'API for managing an e-commerce system',
         },
         servers: [
             {
@@ -22,7 +22,10 @@ const swaggerOptions = {
                 name: 'Product',
                 description: 'API for product management',
             },
-            // Add other tags here in the order you want
+            {
+                name: 'Cart',
+                description: 'API for managing shopping cart',
+            },
         ],
         components: {
             securitySchemes: {
@@ -42,6 +45,10 @@ const swaggerOptions = {
                         email: {
                             type: 'string',
                         },
+                        role: {
+                            type: 'string',
+                            enum: ['Customer', 'Seller'],
+                        },
                     },
                 },
                 UserInput: {
@@ -53,6 +60,11 @@ const swaggerOptions = {
                         password: {
                             type: 'string',
                             format: 'password',
+                        },
+                        role: {
+                            type: 'string',
+                            enum: ['Customer', 'Seller'],
+                            default: 'Customer',
                         },
                     },
                     required: ['email', 'password'],
@@ -66,6 +78,30 @@ const swaggerOptions = {
                         price: { type: 'number', format: 'decimal' },
                         stock: { type: 'integer' },
                     },
+                },
+                CartItem: {
+                    type: 'object',
+                    properties: {
+                        id: { type: 'integer' },
+                        productId: { type: 'integer' },
+                        quantity: { type: 'integer' },
+                    },
+                },
+                AddToCartInput: {
+                    type: 'object',
+                    properties: {
+                        productId: { type: 'integer' },
+                        quantity: { type: 'integer' },
+                    },
+                    required: ['productId', 'quantity'],
+                },
+                UpdateCartItemInput: {
+                    type: 'object',
+                    properties: {
+                        cartItemId: { type: 'integer' },
+                        quantity: { type: 'integer' },
+                    },
+                    required: ['cartItemId', 'quantity'],
                 },
             },
         },

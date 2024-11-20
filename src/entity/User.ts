@@ -5,9 +5,12 @@ export class User {
     @PrimaryGeneratedColumn()
     id = 0;
 
-    @Column({ type: "varchar" })
-    email ="";
+    @Column('text')
+    email!: string;
 
-    @Column({ type: "varchar" })
-    password ="";
+    @Column('text')
+    password! :string;
+
+    @Column({ type: "enum", enum: ["CUSTOMER", "SELLER"], default: "CUSTOMER" })
+    role = "CUSTOMER"; // Default role is CUSTOMER
 }

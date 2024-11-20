@@ -7,15 +7,15 @@ const router = Router();
 /**
  * @swagger
  * tags:
- *   name: Products
- *   description: API for products in the e-commerce system
+ *   name: Product
+ *   description: API for Product management in the e-commerce system
  */
 
 /**
  * @swagger
  * /product:
  *   get:
- *     summary: Get all products
+ *     summary: Get all Products
  *     tags: [Product]
  *     responses:
  *       200:

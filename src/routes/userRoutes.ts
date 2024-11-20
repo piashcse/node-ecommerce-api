@@ -1,36 +1,36 @@
 import { Router } from 'express';
-import {getUsers, createUser, loginUser} from '../controller/userController';
+import { getUsers, createUser, loginUser } from '../controller/userController';
 import { authenticateJWT } from '../middleware/authmiddleware';
 
 const router = Router();
+
 /**
  * @swagger
  * tags:
- *   name: Users
- *   description: API for user management
+ *   name: User
+ *   description: API for User management
  */
 
 /**
  * @swagger
  * /user:
  *   get:
- *     summary: Retrieve all users
+ *     summary: Retrieve the user
  *     tags: [User]
  *     security:
  *       - BearerAuth: []
  *     responses:
  *       200:
- *         description: A list of users
+ *         description: User details retrieved
  *         content:
  *           application/json:
  *             schema:
- *               type: array
- *               items:
- *                 $ref: '#/components/schemas/User'
+ *               $ref: '#/components/schemas/User'
  *       401:
  *         description: Unauthorized
  */
 router.get('/', authenticateJWT, getUsers);
+
 /**
  * @swagger
  * /user:
@@ -42,18 +42,36 @@ router.get('/', authenticateJWT, getUsers);
  *       content:
  *         application/json:
  *           schema:
- *             $ref: '#/components/schemas/UserInput'
+ *             type: object
+ *             properties:
+ *               email:
+ *                 type: string
+ *               password:
+ *                 type: string
+ *               role:
+ *                 type: string
+ *                 enum: [CUSTOMER, SELLER]
+ *             required:
+ *               - email
+ *               - password
+ *               - role
  *     responses:
  *       201:
  *         description: The created user
  *         content:
  *           application/json:
  *             schema:
- *               $ref: '#/components/schemas/User'
+ *               type: object
+ *               properties:
+ *                 email:
+ *                   type: string
+ *                 role:
+ *                   type: string
  *       400:
  *         description: Invalid input
  */
 router.post('/', createUser);
+
 /**
  * @swagger
  * /user/login:
@@ -71,7 +89,6 @@ router.post('/', createUser);
  *                 type: string
  *               password:
  *                 type: string
- *                 format: password
  *             required:
  *               - email
  *               - password
@@ -84,6 +101,8 @@ router.post('/', createUser);
  *               type: object
  *               properties:
  *                 token:
+ *                   type: string
+ *                 role:
  *                   type: string
  *       401:
  *         description: Invalid credentials
