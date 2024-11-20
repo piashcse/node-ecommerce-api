@@ -13,6 +13,17 @@ const swaggerOptions = {
                 url: 'http://localhost:3000',
             },
         ],
+        tags: [
+            {
+                name: 'User',
+                description: 'API for user management',
+            },
+            {
+                name: 'Product',
+                description: 'API for product management',
+            },
+            // Add other tags here in the order you want
+        ],
         components: {
             securitySchemes: {
                 BearerAuth: {
@@ -22,6 +33,30 @@ const swaggerOptions = {
                 },
             },
             schemas: {
+                User: {
+                    type: 'object',
+                    properties: {
+                        id: {
+                            type: 'integer',
+                        },
+                        email: {
+                            type: 'string',
+                        },
+                    },
+                },
+                UserInput: {
+                    type: 'object',
+                    properties: {
+                        email: {
+                            type: 'string',
+                        },
+                        password: {
+                            type: 'string',
+                            format: 'password',
+                        },
+                    },
+                    required: ['email', 'password'],
+                },
                 Product: {
                     type: 'object',
                     properties: {

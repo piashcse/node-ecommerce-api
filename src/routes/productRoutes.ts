@@ -13,10 +13,10 @@ const router = Router();
 
 /**
  * @swagger
- * /products:
+ * /product:
  *   get:
  *     summary: Get all products
- *     tags: [Products]
+ *     tags: [Product]
  *     responses:
  *       200:
  *         description: A list of products
@@ -31,10 +31,10 @@ router.get('/', getProducts);
 
 /**
  * @swagger
- * /products:
+ * /product:
  *   post:
  *     summary: Create a new product
- *     tags: [Products]
+ *     tags: [Product]
  *     security:
  *       - BearerAuth: []
  *     requestBody:
@@ -55,10 +55,10 @@ router.post('/', authenticateJWT, createProduct);
 
 /**
  * @swagger
- * /products/{id}:
+ * /product/{id}:
  *   put:
  *     summary: Update a product by ID
- *     tags: [Products]
+ *     tags: [Product]
  *     security:
  *       - BearerAuth: []
  *     parameters:
@@ -86,10 +86,10 @@ router.put('/:id', authenticateJWT, updateProduct);
 
 /**
  * @swagger
- * /products/{id}:
+ * /product/{id}:
  *   delete:
  *     summary: Delete a product by ID
- *     tags: [Products]
+ *     tags: [Product]
  *     security:
  *       - BearerAuth: []
  *     parameters:

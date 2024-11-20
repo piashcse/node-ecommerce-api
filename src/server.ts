@@ -22,8 +22,8 @@ AppDataSource.initialize()
         console.log('Database connected successfully');
 
         // Register routes
-        app.use('/users', userRoutes);
-        app.use('/products', productRoutes);
+        app.use('/user', userRoutes);
+        app.use('/product', productRoutes);
         app.use('/cart', cartRoutes);
 
         // Define the port and start the server
