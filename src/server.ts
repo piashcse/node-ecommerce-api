@@ -5,13 +5,13 @@ import bodyParser from 'body-parser';
 import userRoutes from './routes/userRoutes';
 import productRoutes from "./routes/productRoutes";
 import cartRoutes from "./routes/cartRoutes";
+import swaggerUi from 'swagger-ui-express';
+import swaggerSpec from './swagger/swaggerConfig';
 
 const app = express();
 app.use(bodyParser.json());
-
-app.get('/', (req, res) => {
-    res.send('Hello, World! API is working');
-});
+// load swagger ui for default url
+app.use('/', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 // Initialize database connection
 AppDataSource.initialize()
@@ -19,8 +19,8 @@ AppDataSource.initialize()
         console.log('Database connected successfully');
 
         // Register routes
-        app.use('/users', userRoutes);
-        app.use('/products', productRoutes);
+        app.use('/user', userRoutes);
+        app.use('/product', productRoutes);
         app.use('/cart', cartRoutes);
 
         // Define the port and start the server
