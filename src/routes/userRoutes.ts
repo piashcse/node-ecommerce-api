@@ -89,9 +89,12 @@ router.post('/', createUser);
  *                 type: string
  *               password:
  *                 type: string
+ *               role:
+ *                 type: string
  *             required:
  *               - email
  *               - password
+ *               - role
  *     responses:
  *       200:
  *         description: JWT token generated

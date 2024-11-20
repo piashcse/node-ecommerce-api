@@ -11,7 +11,7 @@ import swaggerSpec from './swagger/swaggerConfig';
 const app = express();
 app.use(bodyParser.json());
 // load swagger ui for default url
-app.use('/', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+app.use('/api', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 // Initialize database connection
 AppDataSource.initialize()
