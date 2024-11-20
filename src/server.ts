@@ -10,11 +10,8 @@ import swaggerSpec from './swagger/swaggerConfig';
 
 const app = express();
 app.use(bodyParser.json());
-
-app.get('/', (req, res) => {
-    res.send('Hello, World! API is working');
-});
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+// load swagger ui for default url
+app.use('/', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 // Initialize database connection
 AppDataSource.initialize()
