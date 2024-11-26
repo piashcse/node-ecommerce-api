@@ -1,6 +1,6 @@
-import { Router } from 'express';
-import { getUsers, createUser, loginUser } from '../controller/userController';
-import { authenticateJWT } from '../middleware/authmiddleware';
+import { Router } from "express";
+import { getUsers, createUser, loginUser } from "../controller/userController";
+import { authenticateJWT } from "../middleware/authmiddleware";
 
 const router = Router();
 
@@ -29,7 +29,7 @@ const router = Router();
  *       401:
  *         description: Unauthorized
  */
-router.get('/', authenticateJWT, getUsers);
+router.get("/", authenticateJWT, getUsers);
 
 /**
  * @swagger
@@ -70,7 +70,7 @@ router.get('/', authenticateJWT, getUsers);
  *       400:
  *         description: Invalid input
  */
-router.post('/', createUser);
+router.post("/", createUser);
 
 /**
  * @swagger
@@ -110,6 +110,6 @@ router.post('/', createUser);
  *       401:
  *         description: Invalid credentials
  */
-router.post('/login', loginUser);
+router.post("/login", loginUser);
 
 export default router;

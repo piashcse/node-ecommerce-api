@@ -1,6 +1,11 @@
-import { Router } from 'express';
-import { getProducts, createProduct, updateProduct, deleteProduct } from '../controller/productController';
-import { authenticateJWT } from '../middleware/authmiddleware';
+import { Router } from "express";
+import {
+  getProducts,
+  createProduct,
+  updateProduct,
+  deleteProduct,
+} from "../controller/productController";
+import { authenticateJWT } from "../middleware/authmiddleware";
 
 const router = Router();
 
@@ -27,7 +32,7 @@ const router = Router();
  *               items:
  *                 $ref: '#/components/schemas/Product'
  */
-router.get('/', getProducts);
+router.get("/", getProducts);
 
 /**
  * @swagger
@@ -51,7 +56,7 @@ router.get('/', getProducts);
  *             schema:
  *               $ref: '#/components/schemas/Product'
  */
-router.post('/', authenticateJWT, createProduct);
+router.post("/", authenticateJWT, createProduct);
 
 /**
  * @swagger
@@ -82,7 +87,7 @@ router.post('/', authenticateJWT, createProduct);
  *             schema:
  *               $ref: '#/components/schemas/Product'
  */
-router.put('/:id', authenticateJWT, updateProduct);
+router.put("/:id", authenticateJWT, updateProduct);
 
 /**
  * @swagger
@@ -105,6 +110,6 @@ router.put('/:id', authenticateJWT, updateProduct);
  *       404:
  *         description: Product not found
  */
-router.delete('/:id', authenticateJWT, deleteProduct);
+router.delete("/:id", authenticateJWT, deleteProduct);
 
 export default router;
