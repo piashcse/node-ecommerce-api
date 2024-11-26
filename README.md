@@ -1,4 +1,5 @@
 ### Node Ecommerce Backend API
+
 ![Node.js](https://img.shields.io/badge/Node.js-18.0.0-brightgreen)
 ![Express](https://img.shields.io/badge/Express-4.17.1-brightgreen)
 ![TypeScript](https://img.shields.io/badge/TypeScript-4.4.4-blue)
@@ -9,6 +10,7 @@
 A lightweight and secure REST API built with Node.js and Express for eCommerce operations like product management, orders, and users includes basic JWT authentication for secure access to endpoints.
 
 ## Architecture
+
 <p align="center">
   <img width="40%" height="25%" src="https://github.com/piashcse/node-ecommerce-api/blob/master/screenshots/mvc.png" />
 </p>
@@ -16,8 +18,8 @@ A lightweight and secure REST API built with Node.js and Express for eCommerce o
 <b>Fig.  MVC (Model - View - Controller) Design Pattern.</b>
 </p>
 
-
 ## Built With 🛠
+
 - [Node](https://nodejs.org/en) - Node.js® is a free, open-source, cross-platform JavaScript runtime environment that lets developers create servers, web apps, command line tools and scripts.
 - [express](https://expressjs.com/) - Fast, unopinionated, minimalist web framework for node.
 - [pg](https://github.com/brianc/node-postgres) - Non-blocking PostgreSQL client for Node.js. Pure JavaScript and optional native libpq bindings.
@@ -25,8 +27,6 @@ A lightweight and secure REST API built with Node.js and Express for eCommerce o
 - [bcrypt](https://github.com/dcodeIO/bcrypt.js) - Optimized bcrypt in plain JavaScript with zero dependencies.
 - [jsonwebtoken](https://github.com/auth0/node-jsonwebtoken) - An implementation of JWT(JSON Web Tokens).
 - [body-parser](https://www.npmjs.com/package/body-parser) - Body parsing middleware.Parse incoming request bodies in a middleware before your handlers, available under the req.body property.
-
-
 
 ## 👨 Developed By
 
@@ -43,6 +43,7 @@ A lightweight and secure REST API built with Node.js and Express for eCommerce o
 [![Blog](https://img.shields.io/badge/-Blog-0077B5?logo=readme&logoColor=white&style=for-the-badge)](https://piashcse.blogspot.com)
 
 # License
+
 ```
 Copyright 2024 piashcse (Mehedi Hassan Piash)
 
@@ -58,4 +59,3 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 ```
-

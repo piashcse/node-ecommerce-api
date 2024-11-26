@@ -1,0 +1,13 @@
+# Ignore node_modules and build artifacts
+node_modules/
+dist/
+build/
+
+# Ignore ESLint configuration
+eslint.config.mjs
+
+# Ignore all JSON files (if needed)
+*.json
+
+# Ignore specific files or folders
+secret-config/

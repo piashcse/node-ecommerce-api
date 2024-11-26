@@ -1,6 +1,11 @@
-import { Router } from 'express';
-import { addToCart, viewCart, updateCartItem, removeFromCart } from '../controller/cartController';
-import { authenticateJWT } from '../middleware/authmiddleware';
+import { Router } from "express";
+import {
+  addToCart,
+  viewCart,
+  updateCartItem,
+  removeFromCart,
+} from "../controller/cartController";
+import { authenticateJWT } from "../middleware/authmiddleware";
 
 const router = Router();
 
@@ -45,7 +50,7 @@ const router = Router();
  *       404:
  *         description: Product not found
  */
-router.post('/', authenticateJWT, addToCart);
+router.post("/", authenticateJWT, addToCart);
 
 /**
  * @swagger
@@ -67,7 +72,7 @@ router.post('/', authenticateJWT, addToCart);
  *       500:
  *         description: Error fetching cart items
  */
-router.get('/', authenticateJWT, viewCart);
+router.get("/", authenticateJWT, viewCart);
 
 /**
  * @swagger
@@ -103,7 +108,7 @@ router.get('/', authenticateJWT, viewCart);
  *       404:
  *         description: Cart item not found
  */
-router.put('/', authenticateJWT, updateCartItem);
+router.put("/", authenticateJWT, updateCartItem);
 
 /**
  * @swagger
@@ -126,6 +131,6 @@ router.put('/', authenticateJWT, updateCartItem);
  *       404:
  *         description: Cart item not found
  */
-router.delete('/:cartItemId', authenticateJWT, removeFromCart);
+router.delete("/:cartItemId", authenticateJWT, removeFromCart);
 
 export default router;
