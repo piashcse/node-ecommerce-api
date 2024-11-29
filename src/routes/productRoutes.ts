@@ -5,16 +5,9 @@ import {
   updateProduct,
   deleteProduct,
 } from "../controller/productController";
-import { authenticateJWT } from "../middleware/authmiddleware";
+import {authenticateCustomerJWT, authenticateSellerJWT} from "../middleware/authmiddleware";
 
 const router = Router();
-
-/**
- * @swagger
- * tags:
- *   name: Product
- *   description: API for Product management in the e-commerce system
- */
 
 /**
  * @swagger
@@ -22,6 +15,8 @@ const router = Router();
  *   get:
  *     summary: Get all Products
  *     tags: [Product]
+ *     security:
+ *       - BearerAuth: []
  *     responses:
  *       200:
  *         description: A list of products
@@ -31,8 +26,12 @@ const router = Router();
  *               type: array
  *               items:
  *                 $ref: '#/components/schemas/Product'
+ *       401:
+ *         description: Unauthorized - No token provided
+ *       403:
+ *         description: Forbidden - Access denied for non-CUSTOMER role
  */
-router.get("/", getProducts);
+router.get("/", authenticateCustomerJWT, getProducts);
 
 /**
  * @swagger
@@ -47,7 +46,7 @@ router.get("/", getProducts);
  *       content:
  *         application/json:
  *           schema:
- *             $ref: '#/components/schemas/Product'
+ *             $ref: '#/components/schemas/ProductInput'
  *     responses:
  *       201:
  *         description: The created product
@@ -55,8 +54,12 @@ router.get("/", getProducts);
  *           application/json:
  *             schema:
  *               $ref: '#/components/schemas/Product'
+ *       401:
+ *         description: Unauthorized - No token provided
+ *       403:
+ *         description: Forbidden - Access denied for non-SELLER role
  */
-router.post("/", authenticateJWT, createProduct);
+router.post("/", authenticateSellerJWT, createProduct);
 
 /**
  * @swagger
@@ -78,7 +81,7 @@ router.post("/", authenticateJWT, createProduct);
  *       content:
  *         application/json:
  *           schema:
- *             $ref: '#/components/schemas/Product'
+ *             $ref: '#/components/schemas/ProductInput'
  *     responses:
  *       200:
  *         description: The updated product
@@ -86,8 +89,14 @@ router.post("/", authenticateJWT, createProduct);
  *           application/json:
  *             schema:
  *               $ref: '#/components/schemas/Product'
+ *       401:
+ *         description: Unauthorized - No token provided
+ *       403:
+ *         description: Forbidden - Access denied for non-SELLER role
+ *       404:
+ *         description: Product not found
  */
-router.put("/:id", authenticateJWT, updateProduct);
+router.put("/:id", authenticateSellerJWT, updateProduct);
 
 /**
  * @swagger
@@ -107,9 +116,13 @@ router.put("/:id", authenticateJWT, updateProduct);
  *     responses:
  *       200:
  *         description: Success message
+ *       401:
+ *         description: Unauthorized - No token provided
+ *       403:
+ *         description: Forbidden - Access denied for non-SELLER role
  *       404:
  *         description: Product not found
  */
-router.delete("/:id", authenticateJWT, deleteProduct);
+router.delete("/:id", authenticateSellerJWT, deleteProduct);
 
 export default router;

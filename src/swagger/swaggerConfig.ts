@@ -69,6 +69,15 @@ const swaggerOptions = {
           },
           required: ["email", "password", "role"],
         },
+        ProductInput: {
+          type: "object",
+          properties: {
+            name: { type: "string" },
+            description: { type: "string" },
+            price: { type: "number", format: "decimal" },
+            stock: { type: "integer" },
+          },
+        },
         Product: {
           type: "object",
           properties: {
