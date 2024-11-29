@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { getUsers, createUser, loginUser } from "../controller/userController";
-import { authenticateJWT } from "../middleware/authmiddleware";
+import { authenticateCustomerJWT, authenticateSellerJWT } from "../middleware/authmiddleware";
 
 const router = Router();
 
@@ -29,7 +29,7 @@ const router = Router();
  *       401:
  *         description: Unauthorized
  */
-router.get("/", authenticateJWT, getUsers);
+router.get("/", authenticateCustomerJWT, getUsers);
 
 /**
  * @swagger
