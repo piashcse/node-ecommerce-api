@@ -3,6 +3,7 @@ import jwt from "jsonwebtoken";
 export interface JwtPayload {
   email: string;
   password: string;
+  role: string
 }
 
 export const verifyToken = (token: string): JwtPayload => {
